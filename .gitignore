@@ -1,0 +1,48 @@
+# ── 環境與敏感資訊 ────────────────────────
+#.env
+#.env.local
+#.env.*.local
+
+# ── Python ────────────────────────────────
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+dist/
+*.egg-info/
+.eggs/
+
+# ── 虛擬環境 ──────────────────────────────
+.venv/
+venv/
+env/
+ENV/
+
+# ── 資料庫 ────────────────────────────────
+*.sqlite3
+*.sqlite3-wal
+*.sqlite3-shm
+*.db
+
+# ── 日誌 ──────────────────────────────────
+*.log
+
+# ── IDE ──────────────────────────────────
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# ── 作業系統 ──────────────────────────────
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ── 測試與快取 ────────────────────────────
+.pytest_cache/
+.coverage
+htmlcov/
+
+tools/
