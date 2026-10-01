@@ -87,7 +87,6 @@ Do **not** add `--rm`. The container needs to survive a restart for exercise
 ## Step 2 — the service
 
 ```powershell
-Copy-Item .env.example .env
 $env:SERVICE_PORT = 8080
 .\.venv\Scripts\python.exe -m uvicorn app.main:app --host 127.0.0.1 --port 8080
 ```
@@ -359,11 +358,7 @@ Invoke-RestMethod -Uri "http://127.0.0.1:8080/result/$($r.id)" | Select-Object s
 19:35:51 retries exhausted id=350ca536... after 4 attempt(s)
 ```
 
-The message lands in `task_queue.dead` with its full history intact:
-
-```powershell
-python tools/inspect_queue.py task_queue.dead
-```
+The message lands in `task_queue.dead` with its full history intact (can be observed in MQ Management UI):
 
 ```
 === message 1 ===
@@ -441,7 +436,7 @@ traffic on the broker.
 
 ## Configuration
 
-Copy `.env.example` to `.env` and edit. Real shell variables take precedence, so
+Edit `.env` . Real shell variables take precedence, so
 you can override one setting per command without touching the file.
 
 | Variable | Default | Purpose |
@@ -466,7 +461,7 @@ you can override one setting per command without touching the file.
 | `SERVICE_PORT` | `8080` | HTTP port |
 | `DB_PATH` | `lab.sqlite3` | SQLite result store |
 
-Full descriptions and the reasoning behind each default are in `.env.example`.
+Full descriptions and the reasoning behind each default are in `.env`.
 
 ## Troubleshooting
 
